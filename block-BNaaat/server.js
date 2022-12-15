@@ -7,12 +7,12 @@ function handleServer(request, response) {
     let parsedUrl = url.parse(request.url);
 
     // console.log(parsedUrl);
-    if (parsedUrl.pathname === "/stream" && request.method === "GET") {
+    if (parsedUrl.pathname === "/strea" && request.method === "GET") {
         response.writeHead(200, {"Content-Type": "text/html"});
         fs.createReadStream("./node.html").pipe(response);
-        response.end();
+        // response.end();
     } else if (parsedUrl.pathname === "/file" && request.method === "GET") {
-        response.writeHead(200, {"Content-Type": "html/css"});
+        response.writeHead(200, {"Content-Type": "text/html"});
         fs.readFile("./node.html", (err, content)=>{
             response.end(content);
         });
